@@ -1,6 +1,6 @@
 export default function Page() {
 	return (
-		<section className="home">
+		<section className="about">
 			<div className="wrap"></div>
 		</section>
 	);
