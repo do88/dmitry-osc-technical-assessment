@@ -1,14 +1,29 @@
 import { create } from "zustand";
-
 import { Product, BasketState } from "@/types/index";
+
+const DEFAULT_BASKET_STATE = {
+	products: [],
+	totalItems: 0,
+	basketTotal: 0,
+	basketOpen: false,
+	add: () => {},
+	remove: () => {},
+	loadBasket: () => {},
+	toggleBasket: () => {},
+	closeBasket: () => {},
+};
 
 const saveBasketToLocalStorage = (basket: BasketState) => {
 	localStorage.setItem("basket", JSON.stringify(basket));
 };
 
 const loadBasketFromLocalStorage = (): BasketState => {
-	const basket = localStorage.getItem("basket");
-	return basket ? JSON.parse(basket) : { products: [], totalItems: 0, basketTotal: 0 };
+	if (typeof window !== "undefined") {
+		const basket = localStorage.getItem("basket");
+		return basket ? JSON.parse(basket) : DEFAULT_BASKET_STATE;
+	} else {
+		return DEFAULT_BASKET_STATE;
+	}
 };
 
 export const useBasketStore = create<BasketState>((set) => ({
@@ -45,4 +60,16 @@ export const useBasketStore = create<BasketState>((set) => ({
 		}),
 
 	loadBasket: () => set(loadBasketFromLocalStorage()),
+
+	toggleBasket: () =>
+		set((state) => ({
+			...state,
+			basketOpen: !state.basketOpen,
+		})),
+
+	closeBasket: () =>
+		set((state) => ({
+			...state,
+			basketOpen: false,
+		})),
 }));

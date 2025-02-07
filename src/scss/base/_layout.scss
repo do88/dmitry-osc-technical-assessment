@@ -1,6 +1,23 @@
 @use "../base/vars" as *;
 
 #header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	transition: background 0.3s ease-in-out;
+
+	&.sticky {
+		box-shadow: 0 0 30px -10px rgba(#000, 0.1);
+
+		.wrap {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+	}
+
 	.wrap {
 		position: relative;
 		padding-top: 3rem;
@@ -8,6 +25,7 @@
 		display: flex;
 		align-items: center;
 		gap: 3rem;
+		transition: padding 0.3s ease-in-out;
 	}
 
 	.logo {

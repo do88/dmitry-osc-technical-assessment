@@ -1,16 +1,22 @@
+"use client";
+
 import CloseIcon from "../../public/icons/close.svg";
 import MinusIcon from "../../public/icons/minus.svg";
 import PlusIcon from "../../public/icons/plus.svg";
 import RemoveIcon from "../../public/icons/bin.svg";
 
+import { useBasketStore } from "@/store/basket";
+
 export default function Basket() {
+	const { basketOpen, closeBasket } = useBasketStore();
+
 	return (
-		<div className="site-basket">
+		<div className={`site-basket ${basketOpen ? "is-open" : ""}`}>
 			<div className="basket-top">
 				<p className="total-items">
 					<strong>5</strong> items
 				</p>
-				<button className="close">
+				<button className="close" onClick={() => closeBasket()}>
 					<CloseIcon />
 				</button>
 			</div>

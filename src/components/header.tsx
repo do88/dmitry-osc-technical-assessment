@@ -1,10 +1,30 @@
+"use client";
+
+import { useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import BasketIcon from "../../public/icons/basket.svg";
 import Basket from "./basket";
 
+import { useBasketStore } from "@/store/basket";
+
 export default function Header() {
+	const { toggleBasket } = useBasketStore();
+	const headerRef = useRef<HTMLDivElement>(null);
+
+	const handleScroll = useCallback(() => {
+		const headerHeight = headerRef.current?.offsetHeight || 0;
+		headerRef.current?.classList.toggle("sticky", document.documentElement.scrollTop > headerHeight / 4);
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [handleScroll]);
+
 	return (
-		<header id="header">
+		<header id="header" ref={headerRef}>
 			<div className="wrap">
 				<Link href="/" className="logo">
 					MockShop<span>.com</span>
@@ -24,7 +44,7 @@ export default function Header() {
 					</ul>
 				</nav>
 
-				<button className="btn-secondary">
+				<button className="btn-secondary" onClick={() => toggleBasket()}>
 					My Basket
 					<BasketIcon />
 				</button>

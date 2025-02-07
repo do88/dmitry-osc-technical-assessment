@@ -6,14 +6,23 @@
 	right: 3rem;
 	width: 320px;
 	height: 500px;
-
 	display: flex;
 	flex-direction: column;
-
 	border-radius: 2px;
 	background-color: #fff;
 	z-index: 2;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+	opacity: 0;
+	transform: translateY(-30px);
+	pointer-events: none;
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+	&.is-open {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
 
 	.basket-top {
 		display: flex;

@@ -42,7 +42,10 @@ export interface BasketState {
 	products: Product[];
 	totalItems: number;
 	basketTotal: number;
+	basketOpen: boolean;
 	add: (item: Product) => void;
 	remove: (item: Product) => void;
 	loadBasket: () => void;
+	toggleBasket: () => void;
+	closeBasket: () => void;
 }
