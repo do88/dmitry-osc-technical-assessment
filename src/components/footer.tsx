@@ -1,3 +1,11 @@
 export default function Footer() {
-	return <footer>This is the footer</footer>;
+	const currentYear = new Date().getFullYear();
+
+	return (
+		<footer id="footer">
+			<div className="wrap">
+				<p>Copyright &copy; {currentYear} MockShop.com</p>
+			</div>
+		</footer>
+	);
 }

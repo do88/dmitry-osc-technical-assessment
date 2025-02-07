@@ -1,0 +1,12 @@
+@use "./vars" as *;
+
+// Accessibility Focus
+// Using the focus-visible pseudo class to only show focus styles when the element is focused via the keyboard
+// Usage: @include focus-visible
+@mixin focus-visible {
+	&:focus-visible {
+		outline: 2px solid $color_primary;
+		outline-offset: -2px;
+		border-radius: 2px;
+	}
+}

@@ -1,0 +1,68 @@
+@use "../base/vars" as *;
+
+#header {
+	.wrap {
+		position: relative;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	.logo {
+		font-size: clamp(2.4rem, 5vw, 3rem);
+		color: $color_primary;
+		font-family: $secondary_font;
+		margin-right: auto;
+
+		span {
+			color: $color_secondary;
+		}
+	}
+
+	.nav {
+		.menu {
+			display: flex;
+			gap: 2rem;
+		}
+
+		a {
+			color: $color_primary;
+			text-decoration: none;
+
+			&:hover {
+				color: $color_secondary;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+#page-banner {
+	background-color: $color_secondary;
+	color: #fff;
+	margin-bottom: 5rem;
+
+	.wrap {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	h2 {
+		font-size: clamp(2.4rem, 5vw, 2.6rem);
+		font-family: $secondary_font;
+	}
+}
+
+#footer {
+	background-color: rgba($color_primary, 0.8);
+	color: #fff;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	.wrap {
+		text-align: center;
+		font-size: 1.4rem;
+	}
+}

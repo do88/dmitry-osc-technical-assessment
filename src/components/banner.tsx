@@ -1,8 +1,8 @@
-export default function Banner() {
+export default function Banner({ title }: { title: string }) {
 	return (
-		<section className="banner">
+		<section id="page-banner">
 			<div className="wrap">
-				<h2>Home</h2>
+				<h2>{title}</h2>
 			</div>
 		</section>
 	);

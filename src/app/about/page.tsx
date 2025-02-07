@@ -1,7 +1,12 @@
+import Banner from "@/components/banner";
+
 export default function Page() {
 	return (
-		<section className="about">
-			<div className="wrap"></div>
-		</section>
+		<>
+			<Banner title="About" />
+			<section className="about">
+				<div className="wrap"></div>
+			</section>
+		</>
 	);
 }

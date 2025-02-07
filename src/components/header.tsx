@@ -1,32 +1,35 @@
 import Link from "next/link";
-import Basket from "../../public/icons/basket.svg";
+import BasketIcon from "../../public/icons/basket.svg";
+import Basket from "./basket";
 
 export default function Header() {
 	return (
-		<header>
+		<header id="header">
 			<div className="wrap">
-				<h1>
+				<Link href="/" className="logo">
 					MockShop<span>.com</span>
-				</h1>
+				</Link>
 
-				<nav>
+				<nav className="nav">
 					<ul className="menu">
-						<li className="menu__item">
+						<li>
 							<Link href="/">Home</Link>
 						</li>
-						<li className="menu__item">
+						<li>
 							<Link href="/products">Products</Link>
 						</li>
-						<li className="menu__item">
+						<li>
 							<Link href="/about">About</Link>
 						</li>
 					</ul>
 				</nav>
 
-				<button className="btn btn--primary">
+				<button className="btn-secondary">
 					My Basket
-					<Basket />
+					<BasketIcon />
 				</button>
+
+				<Basket />
 			</div>
 		</header>
 	);

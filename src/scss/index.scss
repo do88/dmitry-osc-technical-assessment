@@ -1,1 +1,11 @@
-@use "reset";
+
+@forward "./base/vars";
+@forward "./base/mixins";
+
+@use "./base/reset";
+@use "./base/utils";
+@use "./base/base";
+@use "./base/layout";
+
+@use "./components/products-grid";
+@use "./components/basket";

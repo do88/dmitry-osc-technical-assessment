@@ -1,0 +1,87 @@
+@use "./vars" as *;
+@use "./mixins" as *;
+
+html {
+	background: #fff;
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+	min-height: 100%;
+
+	* {
+		// outline: 1px dotted rgba(red, 0.1) !important;
+	}
+}
+
+body {
+	font-size: 1.6rem;
+	line-height: 1.5;
+	font-weight: 400;
+	color: $color_primary;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+main {
+	flex: 1;
+}
+
+a,
+button,
+input {
+	@include focus-visible;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+u {
+	text-decoration: underline;
+}
+
+i {
+	font-style: italic;
+}
+
+cite,
+em {
+	font-style: italic;
+}
+
+sup {
+	font-size: 0.75em;
+	vertical-align: super;
+	line-height: 0;
+}
+
+li,
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+pre {
+	display: block;
+	font-family: monospace;
+	white-space: pre;
+	margin: 1em 0;
+	font-size: 1rem;
+}
+
+small {
+	font-size: 14px;
+}

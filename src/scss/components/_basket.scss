@@ -1,0 +1,148 @@
+@use "../base/vars" as *;
+
+.site-basket {
+	position: absolute;
+	top: 100px;
+	right: 3rem;
+	width: 320px;
+	height: 500px;
+
+	display: flex;
+	flex-direction: column;
+
+	border-radius: 2px;
+	background-color: #fff;
+	z-index: 2;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+	.basket-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $color_light_grey;
+		padding: 1rem 2rem;
+	}
+
+	.basket-items {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 2rem;
+		flex: 1;
+	}
+
+	.basket-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 2rem;
+		border-bottom: 1px solid $color_light_grey;
+		padding-bottom: 2rem;
+
+		.image {
+			position: relative;
+			aspect-ratio: 1/1;
+			flex: 0 0 75px;
+			background-color: $color_light_grey;
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	.basket-item-info {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		.price {
+			font-size: 1.8rem;
+			font-weight: 600;
+			line-height: 1;
+			margin-bottom: 0.5rem;
+		}
+
+		.title {
+			font-size: 1.4rem;
+			margin-bottom: 1.6rem;
+		}
+
+		.controls {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			.remove,
+			.quantity-button {
+				background-color: $color_primary;
+				padding: 0 1.2rem;
+				border-radius: 2px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 35px;
+
+				svg {
+					width: 1rem;
+					height: 1rem;
+					fill: #fff;
+				}
+
+				&:hover {
+					background-color: $color_secondary;
+				}
+			}
+
+			.quantity-input {
+				width: 45px;
+				text-align: center;
+				background-color: $color_light_grey;
+				border-radius: 2px;
+				height: 35px;
+				font-size: 1.4rem;
+				font-weight: 600;
+			}
+
+			.remove {
+				margin-left: auto;
+				padding: 0 0.75rem;
+				background: unset;
+
+				svg {
+					width: 2rem;
+					height: 2rem;
+					fill: $color_primary;
+				}
+
+				&:hover {
+					background-color: $color_light_grey;
+					svg {
+						fill: $color_secondary;
+					}
+				}
+			}
+		}
+	}
+
+	.basket-total {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.5rem 2rem;
+		background-color: $color_light_grey;
+	}
+
+	.basket-actions {
+		button {
+			width: 100%;
+			border-radius: 0;
+			padding-top: 1.5rem;
+			padding-bottom: 1.5rem;
+		}
+	}
+}
