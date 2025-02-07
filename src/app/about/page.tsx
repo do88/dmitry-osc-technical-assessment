@@ -5,7 +5,9 @@ export default function Page() {
 		<>
 			<Banner title="About" />
 			<section className="about">
-				<div className="wrap"></div>
+				<div className="wrap">
+					<h2 className="home-title">Welcome to the about page of the mock shop</h2>
+				</div>
 			</section>
 		</>
 	);
