@@ -26,6 +26,7 @@ export async function getProducts(): Promise<{
 				featuredImage,
 				price: amount,
 				currencyCode,
+				quantity: 1,
 			};
 		});
 

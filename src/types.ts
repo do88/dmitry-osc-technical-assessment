@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export type ApiResponse = {
 	data: {
 		products: {
 			edges: {
@@ -26,7 +26,7 @@ export interface ApiResponse {
 	};
 }
 
-export interface Product {
+export type Product = {
 	id: string;
 	title: string;
 	description: string;
@@ -36,16 +36,22 @@ export interface Product {
 	};
 	price: string;
 	currencyCode: string;
+	quantity: number;
 }
 
-export interface BasketState {
+export type BasketState = {
 	products: Product[];
 	totalItems: number;
 	basketTotal: number;
 	basketOpen: boolean;
+};
+
+export type BasketActions = {
 	add: (item: Product) => void;
 	remove: (item: Product) => void;
-	loadBasket: () => void;
+	delete: (item: Product) => void;
 	toggleBasket: () => void;
 	closeBasket: () => void;
-}
+};
+
+export type BasketStore = BasketState & BasketActions;

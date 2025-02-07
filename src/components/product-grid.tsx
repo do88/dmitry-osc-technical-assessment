@@ -1,12 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { Product } from "../types";
 import { formatPrice } from "../utils";
 
+import { useBasketStore } from "@/store";
 interface ProductGridProps {
 	products: Product[];
 }
 
 export default function ProductGrid({ products }: ProductGridProps) {
+	const { add } = useBasketStore();
 	return (
 		<ul className="product-grid">
 			{products.map((product) => (
@@ -16,7 +20,9 @@ export default function ProductGrid({ products }: ProductGridProps) {
 					</div>
 					<h3 className="title">{product.title}</h3>
 					<p className="price">{formatPrice(product.price)}</p>
-					<button className="btn-secondary">Add To Basket</button>
+					<button className="btn-secondary" onClick={() => add(product)}>
+						Add To Basket
+					</button>
 				</li>
 			))}
 		</ul>

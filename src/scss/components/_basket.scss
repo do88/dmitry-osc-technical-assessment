@@ -5,7 +5,7 @@
 	top: 100px;
 	right: 3rem;
 	width: 320px;
-	height: 500px;
+	min-height: 300px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 2px;
@@ -30,6 +30,11 @@
 		justify-content: space-between;
 		background-color: $color_light_grey;
 		padding: 1rem 2rem;
+	}
+
+	.basket-empty {
+		padding: 2rem;
+		flex: 1;
 	}
 
 	.basket-items {

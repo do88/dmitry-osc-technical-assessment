@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import BasketIcon from "../../public/icons/basket.svg";
 import Basket from "./basket";
 
-import { useBasketStore } from "@/store/basket";
+import { useCallback, useEffect, useRef } from "react";
+import { useBasketStore } from "@/store";
 
 export default function Header() {
 	const { toggleBasket } = useBasketStore();
