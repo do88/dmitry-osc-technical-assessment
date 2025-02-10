@@ -9,7 +9,7 @@ import { useBasketStore } from "@/store";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-	const { toggleBasket, totalItems, closeBasket } = useBasketStore();
+	const { toggleBasket, totalItems, closeBasket, basketOpen } = useBasketStore();
 	const headerRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 	const handleScroll = useCallback(() => {
@@ -18,6 +18,19 @@ export default function Header() {
 	}, []);
 
 	const [animate, setAnimate] = useState(false);
+
+	// Close basket on escape key
+	useEffect(() => {
+		const handleEscape = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				closeBasket();
+			}
+		};
+		window.addEventListener("keydown", handleEscape);
+		return () => {
+			window.removeEventListener("keydown", handleEscape);
+		};
+	}, [closeBasket]);
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
@@ -59,7 +72,12 @@ export default function Header() {
 					</ul>
 				</nav>
 
-				<button className="btn-secondary basket-trigger" onClick={() => toggleBasket()}>
+				<button
+					className="btn-secondary basket-trigger"
+					onClick={() => toggleBasket()}
+					aria-expanded={basketOpen}
+					aria-label="Toggle basket visibility"
+				>
 					<span>My Basket</span>
 					<BasketIcon />
 				</button>

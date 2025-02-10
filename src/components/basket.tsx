@@ -37,14 +37,26 @@ export default function Basket() {
 							<span className="price">{formatPrice(product.price)}</span>
 							<span className="title">{product.title}</span>
 							<div className="controls">
-								<button className="quantity-button" onClick={() => remove(product)}>
+								<button
+									className="quantity-button"
+									onClick={() => remove(product)}
+									aria-label={`Decrease quantity of ${product.title}`}
+								>
 									<MinusIcon />
 								</button>
 								<input type="text" className="quantity-input" value={product.quantity} readOnly />
-								<button className="quantity-button" onClick={() => add(product)}>
+								<button
+									className="quantity-button"
+									onClick={() => add(product)}
+									aria-label={`Increase quantity of ${product.title}`}
+								>
 									<PlusIcon />
 								</button>
-								<button className="remove" onClick={() => deleteProduct(product)}>
+								<button
+									className="remove"
+									onClick={() => deleteProduct(product)}
+									aria-label={`Remove ${product.title} from basket`}
+								>
 									<RemoveIcon />
 								</button>
 							</div>
@@ -55,19 +67,19 @@ export default function Basket() {
 		);
 
 	return (
-		<div className={`site-basket ${basketOpen ? "is-open" : ""}`}>
+		<div className={`site-basket ${basketOpen ? "is-open" : ""}`} role="dialog" aria-label="Shopping basket">
 			<div className="basket-top">
-				<p className="total-items">
+				<p className="total-items" aria-live="polite">
 					<strong>{totalItems}</strong> items
 				</p>
-				<button className="close" onClick={() => closeBasket()}>
+				<button className="close" onClick={() => closeBasket()} aria-label="Close basket">
 					<CloseIcon />
 				</button>
 			</div>
 
-			{basketContent}
+			<div aria-live="polite">{basketContent}</div>
 
-			<div className="basket-total">
+			<div className="basket-total" aria-live="polite">
 				Total
 				<strong>{formatPrice(basketTotal)}</strong>
 			</div>
