@@ -1,5 +1,5 @@
 @use "../base/vars" as *;
-
+@use "../base/mixins" as *;
 #header {
 	position: fixed;
 	z-index: 10;
@@ -10,11 +10,13 @@
 	transition: background 0.3s ease-in-out;
 
 	&.sticky {
-		box-shadow: 0 0 30px -10px rgba(#000, 0.1);
+		box-shadow: 0 0 30px -10px rgba(#000, 0.2);
 
 		.wrap {
-			padding-top: 2rem;
-			padding-bottom: 2rem;
+			@include breakpoint(min-tablet) {
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+			}
 		}
 	}
 
@@ -24,8 +26,15 @@
 		padding-bottom: 3rem;
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: 3rem;
 		transition: padding 0.3s ease-in-out;
+
+		@include breakpoint(max-tablet) {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			gap: 1.5rem 3rem;
+		}
 	}
 
 	.logo {
@@ -33,6 +42,11 @@
 		color: $color_primary;
 		font-family: $secondary_font;
 		margin-right: auto;
+		line-height: 1;
+
+		@include breakpoint(max-tablet) {
+			font-size: 2.6rem;
+		}
 
 		span {
 			color: $color_secondary;
@@ -40,9 +54,18 @@
 	}
 
 	.nav {
+		@include breakpoint(max-tablet) {
+			width: 100%;
+			order: 3;
+		}
+
 		.menu {
 			display: flex;
 			gap: 2rem;
+
+			@include breakpoint(max-tablet) {
+				justify-content: center;
+			}
 		}
 
 		a {
@@ -52,6 +75,16 @@
 			&:hover {
 				color: $color_secondary;
 				text-decoration: underline;
+			}
+		}
+	}
+
+	.basket-trigger {
+		@include breakpoint(max-tablet) {
+			padding: 1rem;
+
+			span {
+				display: none;
 			}
 		}
 	}

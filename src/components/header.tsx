@@ -59,8 +59,8 @@ export default function Header() {
 					</ul>
 				</nav>
 
-				<button className="btn-secondary" onClick={() => toggleBasket()}>
-					My Basket
+				<button className="btn-secondary basket-trigger" onClick={() => toggleBasket()}>
+					<span>My Basket</span>
 					<BasketIcon />
 				</button>
 

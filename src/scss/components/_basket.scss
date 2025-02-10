@@ -1,4 +1,5 @@
 @use "../base/vars" as *;
+@use "../base/mixins" as *;
 
 .site-basket {
 	position: absolute;
@@ -6,17 +7,26 @@
 	right: 3rem;
 	width: 320px;
 	min-height: 300px;
+	max-height: calc(100vh - 200px);
 	display: flex;
 	flex-direction: column;
 	border-radius: 2px;
 	background-color: #fff;
 	z-index: 2;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	overflow-y: auto;
 
 	opacity: 0;
 	transform: translateY(-30px);
 	pointer-events: none;
 	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+	@include breakpoint(max-tablet) {
+		width: calc(100% - 6rem);
+		right: 3rem;
+		top: 60px;
+		max-height: calc(100vh - 160px);
+	}
 
 	&.is-open {
 		opacity: 1;
@@ -30,6 +40,9 @@
 		justify-content: space-between;
 		background-color: $color_light_grey;
 		padding: 1rem 2rem;
+		position: sticky;
+		top: 0;
+		z-index: 1;
 	}
 
 	.basket-empty {
