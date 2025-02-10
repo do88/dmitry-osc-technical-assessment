@@ -45,9 +45,12 @@
 		z-index: 1;
 	}
 
+	.basket-content {
+		flex: 1;
+	}
+
 	.basket-empty {
 		padding: 2rem;
-		flex: 1;
 	}
 
 	.basket-items {
@@ -55,7 +58,6 @@
 		flex-direction: column;
 		gap: 2rem;
 		padding: 2rem;
-		flex: 1;
 	}
 
 	.basket-item {

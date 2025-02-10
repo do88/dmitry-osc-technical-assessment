@@ -77,7 +77,7 @@ export default function Basket() {
 				</button>
 			</div>
 
-			<div aria-live="polite">{basketContent}</div>
+			<div aria-live="polite" className="basket-content">{basketContent}</div>
 
 			<div className="basket-total" aria-live="polite">
 				Total

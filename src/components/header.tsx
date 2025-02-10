@@ -13,9 +13,13 @@ export default function Header() {
 	const headerRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 	const handleScroll = useCallback(() => {
+		// close basket when scrolling
+		closeBasket();
+
+		// add sticky class to header when scrolling
 		const headerHeight = headerRef.current?.offsetHeight || 0;
 		headerRef.current?.classList.toggle("sticky", document.documentElement.scrollTop > headerHeight / 4);
-	}, []);
+	}, [closeBasket]);
 
 	const [animate, setAnimate] = useState(false);
 
