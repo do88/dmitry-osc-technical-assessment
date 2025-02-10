@@ -32,6 +32,7 @@ export default function Header() {
 		};
 	}, [closeBasket]);
 
+	// Handle scroll
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => {
@@ -39,10 +40,12 @@ export default function Header() {
 		};
 	}, [handleScroll]);
 
+	// Close basket when navigating away
 	useEffect(() => {
 		closeBasket();
 	}, [pathname, closeBasket]);
 
+	// Animate mini-total
 	useEffect(() => {
 		if (totalItems > 0) {
 			setAnimate(true);

@@ -11,6 +11,7 @@ interface ProductGridProps {
 
 export default function ProductGrid({ products }: ProductGridProps) {
 	const { add } = useBasketStore();
+
 	return (
 		<ul className="product-grid">
 			{products.map((product) => (
